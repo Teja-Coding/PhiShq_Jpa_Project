@@ -1,0 +1,8 @@
+package my.com.cmg.iwp.maintenance.service.impl;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class IntegrationLogServiceImpl {
+
+}

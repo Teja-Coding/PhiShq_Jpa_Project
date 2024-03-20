@@ -1,0 +1,36 @@
+package my.com.cmg;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Jdbc_Connection {
+	
+	public static void main(String[] args) {
+        Connection connection = null;
+        try {
+            // Load the JDBC driver
+            Class.forName("oracle.jdbc.OracleDriver");
+
+            // Get a connection
+            connection = DriverManager.getConnection(
+                    "jdbc:oracle:thin:@//10.1.2.69:1521/orcl",
+                    "PHISHQ",
+                    "PHISHQ");
+
+            // Use the connection...
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the connection
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+}

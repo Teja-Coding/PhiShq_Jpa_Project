@@ -1,0 +1,5 @@
+jdbc.url=jdbc:oracle:thin:@//10.1.2.69:1521/orcl
+
+jdbc.username=PHISHQ
+
+jdbc.password=PHISHQ

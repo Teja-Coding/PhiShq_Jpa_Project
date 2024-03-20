@@ -1,0 +1,27 @@
+package my.com.cmg.iwp.backend.dao.integration.impl;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import my.com.cmg.iwp.backend.model.integration.OutsourceOrderInt;
+import my.com.cmg.iwp.backend.model.integration.PatientAllergiesInt;
+import my.com.cmg.iwp.backend.model.integration.PatientDiagnosisInt;
+import my.com.cmg.iwp.backend.model.integration.PatientInt;
+import my.com.cmg.iwp.backend.model.integration.rp.OrderRpInt;
+
+public interface OutsourceOrderIntDAOImpl extends JpaRepository<OutsourceOrderInt, Long> {
+
+	void save(PatientInt patientInt);
+
+	void save(OrderRpInt orderRpInt);
+
+	void save(PatientAllergiesInt patientAllergiesInt);
+
+	void save(PatientDiagnosisInt patientDiagnosisInt);
+	
+	
+	
+	
+
+	
+
+}

@@ -1,0 +1,38 @@
+package my.com.cmg.iwp.integration;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.client.RestTemplate;
+
+import my.com.cmg.iwp.backend.service.integration.cdr.CdrDoseFrequencyIntService;
+import my.com.cmg.iwp.backend.service.integration.cdr.CdrHdrIntService;
+import my.com.cmg.iwp.backend.service.integration.cdr.CdrInfusionDrugsIntService;
+import my.com.cmg.iwp.backend.service.integration.cdr.CdrNormalDrugsIntService;
+
+@Controller
+public class IntegrationRest {
+	
+	@Autowired
+	private CdrHdrIntService cdrHdrIntService;
+
+	@Autowired
+	private CdrInfusionDrugsIntService cdrInfusionDrugsIntService;
+	
+	@Autowired
+	private CdrNormalDrugsIntService cdrNormalDrugsIntService;
+	
+	@Autowired
+	private CdrDoseFrequencyIntService cdrDoseFrequencyIntService;
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	
+	
+	
+	
+	
+
+	
+
+}

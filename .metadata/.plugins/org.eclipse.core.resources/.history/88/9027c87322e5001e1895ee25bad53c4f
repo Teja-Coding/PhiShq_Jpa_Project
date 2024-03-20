@@ -1,0 +1,9 @@
+package my.com.cmg.iwp.backend.dao.integration.cdr.impl;
+
+import my.com.cmg.iwp.backend.model.integration.cdr.CdrNormalDrugsInt;
+import my.com.cmg.iwp.maintenance.dao.impl.BasisNextidDaoImpl;
+
+public class CdrNormalDrugsIntDAOImpl extends
+		BasisNextidDaoImpl<CdrNormalDrugsInt> {
+
+}

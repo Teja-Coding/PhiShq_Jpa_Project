@@ -1,0 +1,5 @@
+package my.com.cmg.iwp.backend.dao.integration.impl;
+
+public class IntegrationLogDAOImpl {
+
+}

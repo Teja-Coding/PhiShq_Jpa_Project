@@ -1,0 +1,35 @@
+package my.com.cmg.iwp.maintenance.dao.impl;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import my.com.cmg.iwp.maintenance.model.RefCodes;
+
+public interface RefCodesDAOImpl extends JpaRepository<RefCodes, Long> {
+	
+	
+	List<RefCodes> findByRcDomainAndRcDescIsNotNull(String domain);
+	
+	List<RefCodes> findByRcDomain(String domain);
+	
+	@Query("SELECT rc FROM RefCodes rc WHERE rc.rcDomain = :domain AND rc.rcDesc = :rcDesc")
+    Optional<RefCodes> findByRcDomainAndRcDesc(@Param("domain") String domain, @Param("rcDesc") String rcDesc);
+	
+	RefCodes findByRcDomainAndRcValue(String domain, String rcValue);
+	
+	@Query("SELECT r FROM RefCodes r WHERE r.rcDomain = :domain AND LOWER(r.rcValue) = LOWER(:rcValue)")
+    RefCodes findByRcDomainAndRcValueIgnoreCase(@Param("domain") String domain, @Param("rcValue") String rcValue);
+	
+	
+	//List<RefCodes> findByRcDomainOrderByRcSeqAsc(String domain);
+	
+	
+	
+	 
+	 
+
+}

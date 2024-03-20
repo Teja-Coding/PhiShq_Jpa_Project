@@ -1,0 +1,32 @@
+package my.com.cmg.iwp.backend.dao.integration.impl;
+
+import java.sql.Date;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import my.com.cmg.iwp.backend.model.integration.IntegrationLog;
+import my.com.cmg.iwp.maintenance.model.IntegrationBean;
+
+public interface IntegrationLogDAOImpl extends JpaRepository<IntegrationLog, Long> {
+	
+	
+
+    @Query("SELECT COUNT(e.createDate) AS noOfTransactions, " +
+            "TRUNC(e.createDate) AS integrationDate, " +
+            "CASE WHEN :statusFlag = true THEN e.status ELSE 'Y' END AS status " +
+            "FROM IntegrationEntity e " +
+            "WHERE (:intType IS NULL OR e.integrationType = :intType) " +
+            "AND (TRUNC(e.createDate) BETWEEN :fromDate AND :toDate) " +
+            "GROUP BY TRUNC(e.createDate), " +
+            "CASE WHEN :statusFlag = true THEN e.status ELSE 'Y' END " +
+            "ORDER BY TRUNC(e.createDate) DESC")
+    List<IntegrationBean> findIntegrationByCriteria(
+            @Param("intType") String intType,
+            @Param("fromDate") Date fromDate,
+            @Param("toDate") Date toDate,
+            @Param("statusFlag") boolean statusFlag);
+
+}
